@@ -22,6 +22,7 @@ namespace STG_web.Models
             this.Subject = new HashSet<Subject>();
             this.Room = new HashSet<Room>();
             this.Timetable = new HashSet<Timetable>();
+            this.UnavaliableHours = new HashSet<UnavaliableHours>();
         }
     
         public int Id { get; set; }
@@ -42,5 +43,7 @@ namespace STG_web.Models
         public virtual ICollection<Room> Room { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Timetable> Timetable { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UnavaliableHours> UnavaliableHours { get; set; }
     }
 }

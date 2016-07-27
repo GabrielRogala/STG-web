@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="10c59b0c01fc44fd8cd540db524be866" Name="Diagram1" ZoomLevel="81">
+      <Diagram DiagramId="10c59b0c01fc44fd8cd540db524be866" Name="Diagram1" ZoomLevel="52">
         <EntityTypeShape EntityType="Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.AspNetRoles" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
@@ -13,30 +13,33 @@
         <AssociationConnector Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.AspNetUserRoles" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="Model.Teacher" Width="1.5" PointX="7.875" PointY="1" />
+        <EntityTypeShape EntityType="Model.Teacher" Width="1.5" PointX="7.875" PointY="0.5" />
         <AssociationConnector Association="Model.AspNetUsersTeacher" />
         <EntityTypeShape EntityType="Model.School" Width="1.5" PointX="7.875" PointY="3.25" />
         <AssociationConnector Association="Model.AspNetUsersSchool" />
-        <EntityTypeShape EntityType="Model.TeacherSchool" Width="1.5" PointX="10" PointY="1.875" />
+        <EntityTypeShape EntityType="Model.TeacherSchool" Width="1.5" PointX="10" PointY="1.625" />
         <AssociationConnector Association="Model.TeacherTeacherSchool" />
         <AssociationConnector Association="Model.SchoolTeacherSchool" />
-        <EntityTypeShape EntityType="Model.Group" Width="1.5" PointX="10" PointY="4" />
+        <EntityTypeShape EntityType="Model.Group" Width="1.5" PointX="10" PointY="5.125" />
         <AssociationConnector Association="Model.SchoolGroup" />
-        <EntityTypeShape EntityType="Model.Subject" Width="1.5" PointX="7.875" PointY="6.875" />
+        <EntityTypeShape EntityType="Model.Subject" Width="1.5" PointX="7.875" PointY="7.5" />
         <AssociationConnector Association="Model.SchoolSubject" />
-        <EntityTypeShape EntityType="Model.GroupSubjectTeacher" Width="1.5" PointX="12.25" PointY="4.375" />
+        <EntityTypeShape EntityType="Model.GroupSubjectTeacher" Width="1.5" PointX="12.25" PointY="4.625" />
         <AssociationConnector Association="Model.GroupGroupSubjectTeacher" />
         <AssociationConnector Association="Model.SubjectGroupSubjectTeacher" />
         <AssociationConnector Association="Model.TeacherGroupSubjectTeacher" />
-        <EntityTypeShape EntityType="Model.RoomType" Width="1.5" PointX="12.25" PointY="8.5" />
+        <EntityTypeShape EntityType="Model.RoomType" Width="1.5" PointX="12.25" PointY="9.125" />
         <AssociationConnector Association="Model.RoomTypeGroupSubjectTeacher" />
         <EntityTypeShape EntityType="Model.Room" Width="1.5" PointX="15.125" PointY="7.25" />
         <AssociationConnector Association="Model.SchoolRoom" />
         <AssociationConnector Association="Model.RoomTypeRoom" />
-        <EntityTypeShape EntityType="Model.Timetable" Width="1.5" PointX="16.875" PointY="1.625" />
+        <EntityTypeShape EntityType="Model.Timetable" Width="1.5" PointX="17.5" PointY="3.25" />
         <AssociationConnector Association="Model.SchoolTimetable" />
         <AssociationConnector Association="Model.GroupSubjectTeacherTimetable" />
         <AssociationConnector Association="Model.RoomTimetable" />
+        <EntityTypeShape EntityType="Model.UnavaliableHours" Width="1.5" PointX="12" PointY="1.25" />
+        <AssociationConnector Association="Model.TeacherUnavaliableHours" />
+        <AssociationConnector Association="Model.SchoolUnavaliableHours" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

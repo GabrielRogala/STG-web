@@ -180,6 +180,15 @@
       <End Role="Room" EntitySet="Room" />
       <End Role="Timetable" EntitySet="Timetable" />
     </AssociationSet>
+    <EntitySet Name="UnavaliableHours" EntityType="Model.UnavaliableHours" />
+    <AssociationSet Name="TeacherUnavaliableHours" Association="Model.TeacherUnavaliableHours">
+      <End Role="Teacher" EntitySet="Teacher" />
+      <End Role="UnavaliableHours" EntitySet="UnavaliableHours" />
+    </AssociationSet>
+    <AssociationSet Name="SchoolUnavaliableHours" Association="Model.SchoolUnavaliableHours">
+      <End Role="School" EntitySet="School" />
+      <End Role="UnavaliableHours" EntitySet="UnavaliableHours" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Teacher">
     <Key>
@@ -192,6 +201,7 @@
     <Property Name="AspNetUsersId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="TeacherSchool" Relationship="Model.TeacherTeacherSchool" FromRole="Teacher" ToRole="TeacherSchool" />
     <NavigationProperty Name="GroupSubjectTeacher" Relationship="Model.TeacherGroupSubjectTeacher" FromRole="Teacher" ToRole="GroupSubjectTeacher" />
+    <NavigationProperty Name="UnavaliableHours" Relationship="Model.TeacherUnavaliableHours" FromRole="Teacher" ToRole="UnavaliableHours" />
   </EntityType>
   <Association Name="AspNetUsersTeacher">
     <End Type="Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
@@ -221,6 +231,7 @@
     <NavigationProperty Name="Subject" Relationship="Model.SchoolSubject" FromRole="School" ToRole="Subject" />
     <NavigationProperty Name="Room" Relationship="Model.SchoolRoom" FromRole="School" ToRole="Room" />
     <NavigationProperty Name="Timetable" Relationship="Model.SchoolTimetable" FromRole="School" ToRole="Timetable" />
+    <NavigationProperty Name="UnavaliableHours" Relationship="Model.SchoolUnavaliableHours" FromRole="School" ToRole="UnavaliableHours" />
   </EntityType>
   <Association Name="AspNetUsersSchool">
     <End Type="Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
@@ -479,6 +490,43 @@
       </Principal>
       <Dependent Role="Timetable">
         <PropertyRef Name="RoomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UnavaliableHours">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Year" Type="String" Nullable="false" />
+    <Property Name="Semester" Type="String" Nullable="false" />
+    <NavigationProperty Name="Teacher" Relationship="Model.TeacherUnavaliableHours" FromRole="UnavaliableHours" ToRole="Teacher" />
+    <Property Name="TeacherId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="School" Relationship="Model.SchoolUnavaliableHours" FromRole="UnavaliableHours" ToRole="School" />
+    <Property Name="SchoolId" Type="Int32" Nullable="false" />
+    <Property Name="Hours" Type="String" Nullable="false" />
+  </EntityType>
+  <Association Name="TeacherUnavaliableHours">
+    <End Type="Model.Teacher" Role="Teacher" Multiplicity="1" />
+    <End Type="Model.UnavaliableHours" Role="UnavaliableHours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UnavaliableHours">
+        <PropertyRef Name="TeacherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SchoolUnavaliableHours">
+    <End Type="Model.School" Role="School" Multiplicity="1" />
+    <End Type="Model.UnavaliableHours" Role="UnavaliableHours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="School">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UnavaliableHours">
+        <PropertyRef Name="SchoolId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

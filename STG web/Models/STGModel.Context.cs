@@ -39,5 +39,6 @@ namespace STG_web.Models
         public virtual DbSet<RoomType> RoomType { get; set; }
         public virtual DbSet<Room> Room { get; set; }
         public virtual DbSet<Timetable> Timetable { get; set; }
+        public virtual DbSet<UnavaliableHours> UnavaliableHours { get; set; }
     }
 }

@@ -19,6 +19,7 @@ namespace STG_web.Models
         {
             this.TeacherSchool = new HashSet<TeacherSchool>();
             this.GroupSubjectTeacher = new HashSet<GroupSubjectTeacher>();
+            this.UnavaliableHours = new HashSet<UnavaliableHours>();
         }
     
         public int Id { get; set; }
@@ -31,5 +32,7 @@ namespace STG_web.Models
         public virtual ICollection<TeacherSchool> TeacherSchool { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GroupSubjectTeacher> GroupSubjectTeacher { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UnavaliableHours> UnavaliableHours { get; set; }
     }
 }

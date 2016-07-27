@@ -15,6 +15,7 @@
     <EntitySet Name="RoomType" EntityType="Model.Store.RoomType" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Room" EntityType="Model.Store.Room" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Timetable" EntityType="Model.Store.Timetable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UnavaliableHours" EntityType="Model.Store.UnavaliableHours" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="AspNetUserRoles" EntityType="Model.Store.AspNetUserRoles" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Model.Store.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -91,6 +92,14 @@
     <AssociationSet Name="RoomTimetable" Association="Model.Store.RoomTimetable">
       <End Role="Room" EntitySet="Room" />
       <End Role="Timetable" EntitySet="Timetable" />
+    </AssociationSet>
+    <AssociationSet Name="TeacherUnavaliableHours" Association="Model.Store.TeacherUnavaliableHours">
+      <End Role="Teacher" EntitySet="Teacher" />
+      <End Role="UnavaliableHours" EntitySet="UnavaliableHours" />
+    </AssociationSet>
+    <AssociationSet Name="SchoolUnavaliableHours" Association="Model.Store.SchoolUnavaliableHours">
+      <End Role="School" EntitySet="School" />
+      <End Role="UnavaliableHours" EntitySet="UnavaliableHours" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="C__MigrationHistory">
@@ -238,6 +247,17 @@
     <Property Name="HourEnd" Type="nvarchar(max)" Nullable="false" />
     <Property Name="GroupSubjectTeacherId" Type="int" Nullable="false" />
     <Property Name="RoomId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UnavaliableHours">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Year" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Semester" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TeacherId" Type="int" Nullable="false" />
+    <Property Name="SchoolId" Type="int" Nullable="false" />
+    <Property Name="Hours" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="AspNetUserRoles">
     <Key>
@@ -452,6 +472,30 @@
       </Principal>
       <Dependent Role="Timetable">
         <PropertyRef Name="RoomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TeacherUnavaliableHours">
+    <End Role="Teacher" Type="Model.Store.Teacher" Multiplicity="1" />
+    <End Role="UnavaliableHours" Type="Model.Store.UnavaliableHours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UnavaliableHours">
+        <PropertyRef Name="TeacherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SchoolUnavaliableHours">
+    <End Role="School" Type="Model.Store.School" Multiplicity="1" />
+    <End Role="UnavaliableHours" Type="Model.Store.UnavaliableHours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="School">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UnavaliableHours">
+        <PropertyRef Name="SchoolId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
