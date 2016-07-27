@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 07/27/2016 17:21:13
+-- Date Created: 07/27/2016 18:09:44
 -- Generated from EDMX file: C:\Users\Gabriel Rogala\Dropbox\INŻ\STG web\STG web\Models\STGModel.edmx
 -- --------------------------------------------------
 
@@ -74,6 +74,12 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_RoomTimetable]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Timetable] DROP CONSTRAINT [FK_RoomTimetable];
 GO
+IF OBJECT_ID(N'[dbo].[FK_TeacherUnavaliableHours]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UnavaliableHours] DROP CONSTRAINT [FK_TeacherUnavaliableHours];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SchoolUnavaliableHours]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UnavaliableHours] DROP CONSTRAINT [FK_SchoolUnavaliableHours];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -121,6 +127,9 @@ GO
 IF OBJECT_ID(N'[dbo].[Timetable]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Timetable];
 GO
+IF OBJECT_ID(N'[dbo].[UnavaliableHours]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UnavaliableHours];
+GO
 IF OBJECT_ID(N'[dbo].[AspNetUserRoles]', 'U') IS NOT NULL
     DROP TABLE [dbo].[AspNetUserRoles];
 GO
@@ -140,7 +149,7 @@ GO
 
 -- Creating table 'AspNetRoles'
 CREATE TABLE [dbo].[AspNetRoles] (
-    [Id] nvarchar(128)  NOT NULL,
+    [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(256)  NOT NULL
 );
 GO
@@ -285,7 +294,7 @@ GO
 
 -- Creating table 'AspNetUserRoles'
 CREATE TABLE [dbo].[AspNetUserRoles] (
-    [RoleId] nvarchar(128)  NOT NULL,
+    [RoleId] int  NOT NULL,
     [UserId] nvarchar(128)  NOT NULL
 );
 GO

@@ -116,7 +116,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
   </EntityType>
   <EntityType Name="AspNetUserClaims">
@@ -264,7 +264,7 @@
       <PropertyRef Name="AspNetRoles_Id" />
       <PropertyRef Name="AspNetUsers_Id" />
     </Key>
-    <Property Name="AspNetRoles_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="AspNetRoles_Id" Type="int" Nullable="false" />
     <Property Name="AspNetUsers_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">

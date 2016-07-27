@@ -9,114 +9,108 @@ using System.Web.Mvc;
 using STG_web.Models;
 
 namespace STG_web.Controllers
-{   
-    [Authorize(Roles = "Admin")]
-    public class SchoolsController : Controller
+{
+    public class AspNetRolesController : Controller
     {
         private Entities db = new Entities();
 
-        // GET: Schools
+        // GET: AspNetRoles
         public ActionResult Index()
         {
-            var school = db.School.Include(s => s.AspNetUsers);
-            return View(school.ToList());
+            return View(db.AspNetRoles.ToList());
         }
 
-        // GET: Schools/Details/5
+        // GET: AspNetRoles/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            School school = db.School.Find(id);
-            if (school == null)
+            AspNetRoles aspNetRoles = db.AspNetRoles.Find(id);
+            if (aspNetRoles == null)
             {
                 return HttpNotFound();
             }
-            return View(school);
+            return View(aspNetRoles);
         }
 
-        // GET: Schools/Create
+        // GET: AspNetRoles/Create
         public ActionResult Create()
         {
-            ViewBag.AspNetUsersId = new SelectList(db.AspNetUsers, "Id", "Email");
             return View();
         }
 
-        // POST: Schools/Create
+        // POST: AspNetRoles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,City,Country,Address,AspNetUsersId")] School school)
+        public ActionResult Create([Bind(Include = "Id,Name")] AspNetRoles aspNetRoles)
         {
             if (ModelState.IsValid)
             {
-                db.School.Add(school);
+                db.AspNetRoles.Add(aspNetRoles);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AspNetUsersId = new SelectList(db.AspNetUsers, "Id", "Email", school.AspNetUsersId);
-            return View(school);
+            return View(aspNetRoles);
         }
 
-        // GET: Schools/Edit/5
+        // GET: AspNetRoles/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            School school = db.School.Find(id);
-            if (school == null)
+            AspNetRoles aspNetRoles = db.AspNetRoles.Find(id);
+            if (aspNetRoles == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.AspNetUsersId = new SelectList(db.AspNetUsers, "Id", "Email", school.AspNetUsersId);
-            return View(school);
+            return View(aspNetRoles);
         }
 
-        // POST: Schools/Edit/5
+        // POST: AspNetRoles/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,City,Country,Address,AspNetUsersId")] School school)
+        public ActionResult Edit([Bind(Include = "Id,Name")] AspNetRoles aspNetRoles)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(school).State = EntityState.Modified;
+                db.Entry(aspNetRoles).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AspNetUsersId = new SelectList(db.AspNetUsers, "Id", "Email", school.AspNetUsersId);
-            return View(school);
+            return View(aspNetRoles);
         }
 
-        // GET: Schools/Delete/5
+        // GET: AspNetRoles/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            School school = db.School.Find(id);
-            if (school == null)
+            AspNetRoles aspNetRoles = db.AspNetRoles.Find(id);
+            if (aspNetRoles == null)
             {
                 return HttpNotFound();
             }
-            return View(school);
+            return View(aspNetRoles);
         }
 
-        // POST: Schools/Delete/5
+        // POST: AspNetRoles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            School school = db.School.Find(id);
-            db.School.Remove(school);
+            AspNetRoles aspNetRoles = db.AspNetRoles.Find(id);
+            db.AspNetRoles.Remove(aspNetRoles);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
