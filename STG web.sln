@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STG web", "STG web\STG web.csproj", "{76C7BA56-5D29-4405-A621-2D700EF62ECA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STG web.Tests", "STG web.Tests\STG web.Tests.csproj", "{AD4942C4-9C46-480A-A03E-3C335F6AAD33}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76C7BA56-5D29-4405-A621-2D700EF62ECA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76C7BA56-5D29-4405-A621-2D700EF62ECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76C7BA56-5D29-4405-A621-2D700EF62ECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76C7BA56-5D29-4405-A621-2D700EF62ECA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD4942C4-9C46-480A-A03E-3C335F6AAD33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD4942C4-9C46-480A-A03E-3C335F6AAD33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD4942C4-9C46-480A-A03E-3C335F6AAD33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD4942C4-9C46-480A-A03E-3C335F6AAD33}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
