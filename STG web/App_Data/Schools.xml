@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Schools>
+	<School>
+		<Id>1</Id>
+		<Name>Szkoła nr 1</Name>
+		<City>Miasto 1</City>
+		<Country>Kraj 1</Country>
+		<Address>ul. Pierwsza 1/2</Address>
+		<AspNetUsersId>2</AspNetUsersId>
+	</School>
+	<School>
+		<Id>2</Id>
+		<Name>Szkoła nr 2</Name>
+		<City>Miasto 2</City>
+		<Country>Kraj 2</Country>
+		<Address>ul. Druga 1/2</Address>
+		<AspNetUsersId>3</AspNetUsersId>
+	</School>
+</Schools>
