@@ -50,6 +50,7 @@ namespace STG_web.Controllers
         {
             if (ModelState.IsValid)
             {
+                aspNetRoles.Id = aspNetRoles.Name;
                 db.AspNetRoles.Add(aspNetRoles);
                 db.SaveChanges();
                 return RedirectToAction("Index");
