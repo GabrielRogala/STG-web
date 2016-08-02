@@ -6,7 +6,7 @@
 		<City>Miasto 1</City>
 		<Country>Kraj 1</Country>
 		<Address>ul. Pierwsza 1/2</Address>
-		<AspNetUsersId>2</AspNetUsersId>
+		<AspNetUsersId>5bae72f7-b798-40d7-8979-739aaa631765</AspNetUsersId>
 	</School>
 	<School>
 		<Id>2</Id>
@@ -14,6 +14,6 @@
 		<City>Miasto 2</City>
 		<Country>Kraj 2</Country>
 		<Address>ul. Druga 1/2</Address>
-		<AspNetUsersId>3</AspNetUsersId>
+		<AspNetUsersId>5bae72f7-b798-40d7-8979-739aaa631765</AspNetUsersId>
 	</School>
 </Schools>

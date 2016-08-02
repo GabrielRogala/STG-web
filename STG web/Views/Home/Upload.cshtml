@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Upload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Upload | @ViewBag.mess</h4>
+        <hr />
+
+        @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Type:</label>
+                <div class="col-sm-9">
+                    @Html.DropDownList("type", (IEnumerable<SelectListItem>)ViewBag.DBType, htmlAttributes: new { @class = "form-control" })
+                </div>
+                <div class="row">
+                    <label class="col-sm-3 control-label">Plik:</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="file" name="file" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-offset-10">
+                        <input class="btn btn-default" type="submit" value="Zapisz" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}        

@@ -10,7 +10,7 @@ using STG_web.Models;
 
 namespace STG_web.Controllers
 {   
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class SchoolsController : Controller
     {
         private Entities db = new Entities();
